@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 
-
 export default function MobileDrawer() {
   const [flag, setFlag] = useState(false);
 
@@ -14,13 +13,13 @@ export default function MobileDrawer() {
           <a href="/">
             <p className="link">Home</p>
           </a>
-          <a href="/">
+          <a href="/compare">
             <p className="link">Compare</p>
           </a>
-          <a href="/">
+          <a href="/watchlist">
             <p className="link">Watchlist</p>
           </a>
-          <a href="/">
+          <a href="/dashboard">
             <p className="link">Dashboard</p>
           </a>
         </div>

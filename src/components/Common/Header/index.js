@@ -4,7 +4,6 @@ import MobileDrawer from "./Drawer";
 import "./styles.css";
 
 function Header() {
- 
   return (
     <div className="header">
       <h1>
@@ -14,18 +13,20 @@ function Header() {
         <a href="/">
           <p className="link">Home</p>
         </a>
-        <a href="/">
+        <a href="/compare">
           <p className="link">Compare</p>
         </a>
-        <a href="/">
+        <a href="/watchlist">
           <p className="link">Watchlist</p>
         </a>
-        <Button
-          text="Dashboard"
-          onClick={() => {
-            console.log("btn-clicked!!!");
-          }}
-        />
+        <a href="/dashboard">
+          <Button
+            text="Dashboard"
+            onClick={() => {
+              console.log("btn-clicked!!!");
+            }}
+          />
+        </a>
       </div>
       <MobileDrawer />
     </div>
