@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-:root{
+
+:root {
   --white: #fff;
   --black: #111;
   --blue: #3a80e9;
@@ -9,6 +10,10 @@
   --red: #f94141;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -16,7 +21,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--black);
   color: var(--white);
-  min-height: 150vh;
 }
 
 ::selection {
@@ -33,7 +37,7 @@ body {
   border-radius: 10px;
 }
 
-/* disable the image copy  */
+ /* diabling the copy of images */
 img {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
