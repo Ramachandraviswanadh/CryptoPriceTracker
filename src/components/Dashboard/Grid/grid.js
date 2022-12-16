@@ -16,7 +16,7 @@ function Grid({ coin, delay }) {
         }`}
       >
         <div className="info-flex">
-          <img src={coin.image} className="coin-image" />
+          <img src={coin.image} className="coin-image" alt="coin-img" />
           <div className="coin-name-flex">
             <h3 className="coin-symbol">{coin.symbol}</h3>
             <p className="coin-name">{coin.name}</p>
