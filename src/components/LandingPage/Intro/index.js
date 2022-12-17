@@ -49,12 +49,12 @@ function LandingPageComponent() {
         <motion.img
           src={iPhone}
           className="iphone"
-          initial={{ y: -10 }}
-          animate={{ y: 10 }}
+          initial={{ x: -15 }}
+          animate={{ x: 15 }}
           transition={{
             type: "smooth",
             repeatType: "mirror",
-            duration: 2,
+            duration: 3,
             repeat: Infinity,
           }}
         />

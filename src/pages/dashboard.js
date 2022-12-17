@@ -14,7 +14,6 @@ function DashboardPage() {
   const [pageNumber, setPageNumber] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const handlePageChange = (event, value) => {
-    console.log("Page number1 ", value);
     setPageNumber(value);
     // Page 1 - [0,10)
     // Page 2 - [10,20)
@@ -31,7 +30,8 @@ function DashboardPage() {
     if (
       coin.name.toLowerCase().includes(search.toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.toLowerCase())
-    ) {
+    )
+     {
       return coin;
     }
   });
@@ -49,7 +49,7 @@ function DashboardPage() {
       )
       .then((response) => {
         console.log("RESPONSE>>>", response);
-        if (response.status == 200) {
+        if (response.status === 200) {
           setCoins(response.data);
           setPaginatedCoins(response.data.slice(0, 10));
           setLoading(false);

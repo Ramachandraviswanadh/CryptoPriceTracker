@@ -11,13 +11,13 @@ function List({ coin, delay }) {
     <a href={`/coin/${coin.id}`}>
       <motion.tr
         className="list-row"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: delay }}
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: delay }}
       >
         <Tooltip placement="bottom-start" title="Image">
           <td className="td-img">
-            <img src={coin.image} className="coin-image" alt="coin-image"/>
+            <img src={coin.image} className="coin-image" alt="cryptocoin-pictur"/>
           </td>
         </Tooltip>
         <Tooltip placement="bottom-start" title="Info">

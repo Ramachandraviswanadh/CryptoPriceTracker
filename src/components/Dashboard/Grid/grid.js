@@ -8,8 +8,8 @@ function Grid({ coin, delay }) {
   return (
     <a href={`/coin/${coin.id}`}>
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: 50 ,y:50}}
+        whileInView={{ opacity: 1, x: 0,y:0 }}
         transition={{ duration: 0.5, delay: delay }}
         className={`grid-container ${
           coin.price_change_percentage_24h < 0 && "grid-container-red"

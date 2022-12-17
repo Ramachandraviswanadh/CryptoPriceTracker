@@ -56,6 +56,7 @@
     object-fit: contain;
     z-index: 1;
     right: 0rem;
+    
   }
   
   @media only screen and (max-width: 1250px) {

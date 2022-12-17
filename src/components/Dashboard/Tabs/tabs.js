@@ -14,7 +14,7 @@ function TabsComponent({ coins }) {
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
-
+// to apply theme for grid and list used themeprovider
   const theme = createTheme({
     palette: {
       primary: {
@@ -27,7 +27,7 @@ function TabsComponent({ coins }) {
     color: "var(--white)",
     width: "50vw",
     fontSize: "1.2rem",
-    fontWeight: 600,
+    fontWeight: 700,
     fontFamily: "Inter",
     textTransform: "capitalize",
   };
@@ -37,7 +37,8 @@ function TabsComponent({ coins }) {
       <ThemeProvider theme={theme}>
         <TabContext value={tabValue}>
           <TabList variant="fullWidth" onChange={handleChange}>
-            <Tab label="Grid" value="grid" sx={style} />
+            {/* sx  is used style mui tab below */}
+            <Tab label="Grid" value="grid" sx={style} /> 
             <Tab label="List" value="list" sx={style} />
           </TabList>
           <TabPanel value="grid" className="tabPanel">
