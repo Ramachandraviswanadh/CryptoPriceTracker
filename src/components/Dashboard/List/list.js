@@ -15,6 +15,7 @@ function List({ coin, delay }) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: delay }}
       >
+        {/* tooltip made so that when hover the data it will show the title */}
         <Tooltip placement="bottom-start" title="Image">
           <td className="td-img">
             <img src={coin.image} className="coin-image" alt="cryptocoin-pictur"/>

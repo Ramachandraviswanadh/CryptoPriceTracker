@@ -2,7 +2,8 @@
 import Pagination from "@mui/material/Pagination";
 import "./styles.css";
 function PaginationComponent({ pageNumber, handleChange }) {
-  return (
+ 
+    return (
     <div className="pagination-div">
       <Pagination
         count={10}

@@ -27,13 +27,10 @@ function DashboardPage() {
   };
 
   var filteredCoins = coins.filter((coin) => {
-    if (
-      coin.name.toLowerCase().includes(search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(search.toLowerCase())
-    )
-     {
-      return coin;
-    }
+    
+    return ( coin.name.toLowerCase().includes(search.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(search.toLowerCase()))
+    
   });
 
   useEffect(() => {
@@ -48,7 +45,7 @@ function DashboardPage() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((response) => {
-        console.log("RESPONSE>>>", response);
+       
         if (response.status === 200) {
           setCoins(response.data);
           setPaginatedCoins(response.data.slice(0, 10));
