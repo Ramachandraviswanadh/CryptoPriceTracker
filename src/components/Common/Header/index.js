@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/button";
 import MobileDrawer from "./Drawer";
-import "./styles.css";
+import "./headerstyles.css";
 
 function Header() {
   return (
