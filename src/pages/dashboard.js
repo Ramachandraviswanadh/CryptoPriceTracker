@@ -15,6 +15,7 @@ function DashboardPage() {
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const handlePageChange = (event, value) => {
     setPageNumber(value);
+    // giving page numbers  every time clicking on the pagination component
     // Page 1 - [0,10)
     // Page 2 - [10,20)
     // Page 3 - [20,30)
@@ -25,6 +26,7 @@ function DashboardPage() {
   const onChange = (e) => {
     setSearch(e.target.value);
   };
+
 
   var filteredCoins = coins.filter((coin) => {
     
@@ -37,6 +39,7 @@ function DashboardPage() {
     getData();
   }, []);
 
+  
   const getData = () => {
     // Call the API and get the data
     setLoading(true);
