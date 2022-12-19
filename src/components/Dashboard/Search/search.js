@@ -9,7 +9,7 @@ function SearchComponent({ search, onChange }) {
       <input
         type="text"
         className="search-input"
-        placeholder="Search"
+        placeholder="find your coin here"
         value={search}
         onChange={onChange}
       />
