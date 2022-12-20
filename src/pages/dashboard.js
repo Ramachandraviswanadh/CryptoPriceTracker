@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import TopButton from "../components/Common/BackToTop/topButton";
 import Header from "../components/Common/Header";
@@ -6,6 +6,7 @@ import Loader from "../components/Common/Loader/loader";
 import PaginationComponent from "../components/Dashboard/Pagination/pagination";
 import SearchComponent from "../components/Dashboard/Search/search";
 import TabsComponent from "../components/Dashboard/Tabs/tabs";
+import { get100Coins } from "../functions/get100Coins";
 
 function DashboardPage() {
   const [loading, setLoading] = useState(false);
@@ -14,8 +15,9 @@ function DashboardPage() {
   const [pageNumber, setPageNumber] = useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const handlePageChange = (event, value) => {
+   
     setPageNumber(value);
-    // giving page numbers  every time clicking on the pagination component
+     // giving page numbers  every time clicking on the pagination componen
     // Page 1 - [0,10)
     // Page 2 - [10,20)
     // Page 3 - [20,30)
@@ -27,45 +29,38 @@ function DashboardPage() {
     setSearch(e.target.value);
   };
 
-
   var filteredCoins = coins.filter((coin) => {
-    
-    return ( coin.name.toLowerCase().includes(search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(search.toLowerCase()))
-    
+    if (
+      coin.name.toLowerCase().includes(search.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(search.toLowerCase())
+    ) 
+    {
+      return coin;
+    }
   });
 
   useEffect(() => {
     getData();
   }, []);
 
-  
-  const getData = () => {
-    // Call the API and get the data
+  const getData = async () => {
+    // Call the API and getting   the data from api
     setLoading(true);
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-      .then((response) => {
-       
-        if (response.status === 200) {
-          setCoins(response.data);
-          setPaginatedCoins(response.data.slice(0, 10));
-          setLoading(false);
-        }
-      })
-      .catch((error) => {
-        console.log("ERROR>>>", error);
-        setLoading(false);
-      });
+    const data = await get100Coins();
+    if (data) {
+      setCoins(data);
+      setPaginatedCoins(data.slice(0, 10));
+      setLoading(false);
+    }
   };
 
   return (
     <>
+
       <TopButton />
       {loading ? (
         <Loader />
+
       ) : (
         <div>
           <Header />

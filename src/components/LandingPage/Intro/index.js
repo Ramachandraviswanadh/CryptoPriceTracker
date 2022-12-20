@@ -17,14 +17,16 @@ function LandingPageComponent() {
         >
           Track Crypto
         </motion.h1>
+        
         <motion.h1
           className="heading-2"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+          transition={{ duration: 0.5, delay: 0.1 }}>
           Real Time.
         </motion.h1>
+       
+        
         <motion.p
           className="para"
           initial={{ opacity: 0, z: 50 }}
