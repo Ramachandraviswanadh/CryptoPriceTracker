@@ -16,7 +16,7 @@ function CoinPage() {
   const { id } = useParams();
   const [coin, setCoin] = useState();
   const [loading, setLoading] = useState(false);
-  const [days, setDays] = useState(90);
+  const [days, setDays] = useState(120);
   const [priceType, setPriceType] = useState("prices");
   const [chartData, setChartData] = useState({
     labels: [],
@@ -31,11 +31,10 @@ function CoinPage() {
     setLoading(true);
     const data = await getCoinData(id);
     if (data) {
-      coinObject(setCoin, data);
-       // Coin Obj is called from function 
+      coinObject(setCoin, data); //For Coin Obj being passed in the List
       const prices = await getCoinPrices(id, days, priceType);
       if (prices) {
-        settingChartData(setChartData, data, prices);
+        settingChartData(setChartData, prices, data);
         setLoading(false);
       }
     }
@@ -45,23 +44,20 @@ function CoinPage() {
     setDays(event.target.value);
     const prices = await getCoinPrices(id, event.target.value, priceType);
     if (prices) {
-      settingChartData(setChartData, coin, prices);
+      settingChartData(setChartData, prices, coin);
     }
   };
-
 
   const handlePriceTypeChange = async (event) => {
     setPriceType(event.target.value);
     const prices = await getCoinPrices(id, days, event.target.value);
-    if (prices)
-     {
-      settingChartData(setChartData, coin, prices);
+    if (prices) {
+      settingChartData(setChartData, prices, coin);
     }
   };
 
   return (
     <div>
-
       {loading || !coin?.id || !chartData ? (
         <Loader />
       ) : (
@@ -76,9 +72,7 @@ function CoinPage() {
               handlePriceTypeChange={handlePriceTypeChange}
               priceType={priceType}
             />
-
             <LineChart chartData={chartData} priceType={priceType} />
-            
           </div>
           <CoinInfo name={coin.name} desc={coin.desc} />
         </>
